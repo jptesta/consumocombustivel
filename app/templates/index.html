@@ -2,5 +2,43 @@
 
 {% block content %}
 
+
+{{ consumo }}
+
+<form>
+    <label>Data Abastecimento:</label>
+    <input type="date" name="Data">
+    <br>
+
+    <label>Quilometragem</label>
+    <input type="number" name="km">
+    <br>
+    <label>Tanque</label>
+    <input type="number" name="tanque">
+    <br>
+
+    <label>Valor Por Litro </label>
+    <input type="number" name="valorporlitro">
+    <br>
+    <label> Media: </label>
+    <input type="number" name="media">
+    <br>
+    <label>Total Combustivel:</label>
+    <input type="number" name="totalcombustivel">
+    <br>
+    <label>Cidade ou Estrada: </label>
+    <input type="text" name="cidadeouestrada">
+    <br>
+    <label>Posto:</label>
+    <input type="text" name="posto">
+    <br>
+    <label>Tipo:</label>
+    <input type="text" name="tipo" >
+    <br>
+    <label>R$/km</label>
+    <input type="number" name="vlrpl">
+
+</form>
+
 {% endblock %}
 
