@@ -1,6 +1,16 @@
 from app import db
 
 
+class Veiculo(db.Model):
+    __tablename__ = 'veiculo'
+    idveiculo = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Marca = db.Column(db.String(50))
+    Modelo = db.Column(db.String(50))
+
+    def __repr__(self):
+        return '<Veiculo %r>' % self.Modelo
+
+
 class Consumo(db.Model):
     # __tablename__ = 'consumo'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -17,14 +27,4 @@ class Consumo(db.Model):
     vlrkm = db.Column(db.Float)
 
     def __repr__(self):
-        return '<Consumo %r>' % self.Km
-
-
-class Veiculo(db.Model):
-    # __tablename__= 'veiculo'
-    idveiculo = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Marca = db.Column(db.String(50))
-    Modelo = db.Column(db.String(50))
-
-    def __repr__(self):
-        return '<Veiculo %r>' % self.Marca
+        return '<Km %r>' % self.Km
