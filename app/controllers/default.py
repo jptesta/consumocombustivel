@@ -5,22 +5,28 @@ from app.models.tables import Consumo
 from app import app, db
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     consumo = tables.Consumo.query.all()
+    return render_template('index.html', consumo=consumo)
+
+
+@app.route('/cadastrar', methods=['GET', 'POST'])
+def cadastrar():
     if request.method == 'POST':
-        data = request.method['data']
-        vlrpl = request.method['vlrpl']
-        km = request.method['km']
-        tanque = request.method['tanque']
-        media = request.method['media']
-        totalcombustivel = request.method['totalcombustivel']
-        cidadeouestrada = request.method['cidadeouestrada']
-        posto = request.method['posto']
-        tipo = request.method['tipo']
-        vlrpkm = request.method['vlrpkm']
-        consumo = Consumo(Data=data, Vlrpl=vlrpl, Km=km, Tanque=tanque, Media=media,Totalcombustivel=totalcombustivel,
-                          Cidadeouestrada=cidadeouestrada, Posto=posto, Tipo=tipo, Vlrpkm=vlrpkm)
+        dataabastecimento = request.form['dataabastecimento']
+        vlrpl = request.form['vlrpl']
+        km = request.form['km']
+        tanque = request.form['tanque']
+        media = request.form['media']
+        totalcombustivel = request.form['totalcombustivel']
+        cidadeouestrada = request.form['cidadeouestrada']
+        posto = request.form['posto']
+        tipo = request.form['tipo']
+        vlrkm = request.form['vlrpkm']
+        consumo = Consumo(Data=dataabastecimento, Valorporlitro=vlrpl, Km=km, Tanque=tanque, Media=media,
+                          Totalcombustivel=totalcombustivel, Cidadeouestrada=cidadeouestrada, Posto=posto, Tipo=tipo,
+                          Vlrkm=vlrkm)
         db.session.add(consumo)
         db.session.commit()
-    return render_template('index.html', consumo=consumo)
+    return render_template('cadastrar.html', consumo=consumo)

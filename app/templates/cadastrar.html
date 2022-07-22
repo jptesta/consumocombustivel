@@ -6,11 +6,11 @@
 {{ consumo }}
 
 
-<form action="{{url_for('cadastrar')}}" method="post" >
+<form action="/{{url_for('cadastrar')}}" method="post" >
     <table>
         <tr>
-            <td><label for="dataabastecimento">Data Abastecimento:</label></td>
-            <td> <input type="date" id="dataabastecimento" name="dataabastecimento"> </td>
+            <td><label for="data">Data Abastecimento:</label></td>
+            <td> <input type="date" id="data" name="data"> </td>
         </tr>
 
         <tr>
@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td><label for="vlrpkm">R$/km</label></td>
-            <td><input type="text" id="vlrpkm" name="vlrpkm" onchange="calcular()"></td>
+            <td><input type="text" id="vlrpkm" name="vlrpkm" onfocus="calcular()"></td>
         </tr>
     </table>
 
@@ -84,7 +84,7 @@ function calcular(){
     var valor4 = parseInt(document.getElementById('media').value);
     document.getElementById('media').value = valor1 / valor2;
     document.getElementById('totalcombustivel').value = valor3 * valor2;
-    document.getElementById('vlrpkm').value = valor3 / valor4;
+    document.getElementById('vlrpkm').value = valor3 / valor4 ;
 }
 
 
