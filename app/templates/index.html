@@ -5,40 +5,89 @@
 
 {{ consumo }}
 
+
 <form>
-    <label>Data Abastecimento:</label>
-    <input type="date" name="Data">
-    <br>
+    <table>
+        <tr>
+            <td><label for="data">Data Abastecimento:</label></td>
+            <td> <input type="date" id="data" name="data"> </td>
+        </tr>
 
-    <label>Quilometragem</label>
-    <input type="number" name="km">
-    <br>
-    <label>Tanque</label>
-    <input type="number" name="tanque">
-    <br>
+        <tr>
+            <td><label for="vlrpl">Valor Por Litro:</label></td>
+            <td><input type="text" id="vlrpl" name="vlrpl" onchange="calcular()"></td>
+        </tr>
 
-    <label>Valor Por Litro </label>
-    <input type="number" name="valorporlitro">
-    <br>
-    <label> Media: </label>
-    <input type="number" name="media">
-    <br>
-    <label>Total Combustivel:</label>
-    <input type="number" name="totalcombustivel">
-    <br>
-    <label>Cidade ou Estrada: </label>
-    <input type="text" name="cidadeouestrada">
-    <br>
-    <label>Posto:</label>
-    <input type="text" name="posto">
-    <br>
-    <label>Tipo:</label>
-    <input type="text" name="tipo" >
-    <br>
-    <label>R$/km</label>
-    <input type="number" name="vlrpl">
+        <tr>
+            <td><label for="km">Odometro parcial:</label></td>
+            <td><input type="text" id="km" name="km" onchange="calcular()"/></td>
+        </tr>
+
+        <tr>
+            <td><label for="tanque">Tanque:</label></td>
+            <td><input type="text" id="tanque" name="tanque" onchange="calcular()"/></td>
+        </tr>
+
+        <tr>
+            <td><label for="media"> Media: </label></td>
+            <td><input type="text" id="media" name="media"></td>
+        </tr>
+        <tr>
+            <td><label for="totalcombustivel">Total Combustivel:</label></td>
+            <td><input type="text" id="totalcombustivel" name="totalcombustivel"></td>
+        </tr>
+
+        <tr>
+            <td><label>Cidade ou Estrada: </label></td>
+            <td><input list="cidadeouestrada" name="cidadeouestrada">
+                <datalist id="cidadeouestrada">
+                    <option value="Cidade"></option>
+                    <option value="Estrada"></option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="posto">Posto:</label></td>
+            <td><input type="text" id="posto" name="posto"></td>
+        </tr>
+        <tr>
+            <td><label for="tipo">Tipo:</label></td>
+                <td>
+                <input list="tipo" name="tipo">
+                    <datalist id="tipo">
+                        <option value="Gasolina Comum"></option>
+                        <option value="Gasolina Aditivada"></option>
+                        <option value="Gasolina Premium"></option>
+                        <option value="Etanol"></option>
+                        <option value="Diesel S-10"></option>
+                        <option value="Diesel S-500"></option>
+                        <option value="Podium"></option>
+                    </datalist>
+                </td>
+        </tr>
+        <tr>
+            <td><label for="vlrpkm">R$/km</label></td>
+            <td><input type="text" id="vlrpkm" name="vlrpkm" onfocus="calcular()"></td>
+        </tr>
+    </table>
 
 </form>
+
+<script>
+
+function calcular(){
+    var valor1 = parseInt(document.getElementById('km').value);
+    var valor2 = parseInt(document.getElementById('tanque').value);
+    var valor3 = parseInt(document.getElementById('vlrpl').value);
+    var valor4 = parseInt(document.getElementById('media').value);
+    document.getElementById('media').value = valor1 / valor2;
+    document.getElementById('totalcombustivel').value = valor3 * valor2;
+    document.getElementById('vlrpkm').value = valor3 / valor4 ;
+}
+
+
+</script>
+
 
 {% endblock %}
 
