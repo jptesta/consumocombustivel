@@ -24,9 +24,7 @@ def cadastrar():
         posto = request.form['posto']
         tipo = request.form['tipo']
         vlrkm = request.form['vlrpkm']
-        consumo = Consumo(Data=dataabastecimento, Valorporlitro=vlrpl, Km=km, Tanque=tanque, Media=media,
-                          Totalcombustivel=totalcombustivel, Cidadeouestrada=cidadeouestrada, Posto=posto, Tipo=tipo,
-                          Vlrkm=vlrkm)
+        consumo = Consumo(Data=dataabastecimento, Valorporlitro=vlrpl, Km=km, Tanque=tanque, Media=media, Totalcombustivel=totalcombustivel, Cidadeouestrada=cidadeouestrada, Posto=posto, Tipo=tipo, Vlrkm=vlrkm)
         db.session.add(consumo)
         db.session.commit()
     return render_template('cadastrar.html', consumo=consumo)
