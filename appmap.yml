@@ -1,0 +1,4 @@
+language: python
+name: consumocombustivel
+packages:
+- path: app

@@ -30,11 +30,11 @@
 
         <tr>
             <td><label for="media"> Media: </label></td>
-            <td><input type="number" id="media" name="media"></td>
+            <td><input type="number" id="media" name="media" oninput="calcular()"></td>
         </tr>
         <tr>
             <td><label for="totalcombustivel">Total Combustivel:</label></td>
-            <td><input type="number" id="totalcombustivel" name="totalcombustivel"></td>
+            <td><input type="number" id="totalcombustivel" oninput="calcular()" name="totalcombustivel"></td>
         </tr>
 
         <tr>
@@ -67,7 +67,7 @@
         </tr>
         <tr>
             <td><label for="vlrpkm">R$/km</label></td>
-            <td><input type="text" id="vlrpkm" name="vlrpkm" onfocus="calcular()"></td>
+            <td><input type="text" id="vlrpkm" name="vlrpkm" oninput="calcular()"></td>
         </tr>
     </table>
 
